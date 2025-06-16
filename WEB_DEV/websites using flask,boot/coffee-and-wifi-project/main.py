@@ -7,7 +7,7 @@ import csv
 import json
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY")
 Bootstrap5(app)
 
 # Exercise:
@@ -23,9 +23,9 @@ class CafeForm(FlaskForm):
     open = TimeField('Open', validators=[DataRequired()])
     close = TimeField('Close', validators=[DataRequired()])
     coffee = SelectField('Coffee', choices=["☕️", "☕☕", "☕☕☕", "☕☕☕☕", "☕☕☕☕☕"],
-                         validators=[DataRequired()])
+                        validators=[DataRequired()])
     wifi = SelectField('Wifi', choices=[("0", "✘"), ("1", "💪"), ("2", "💪💪"), ("3", "💪💪💪"), ("4", "💪💪💪💪"), ("5", "💪💪💪💪💪")],
-                       validators=[DataRequired()])
+                    validators=[DataRequired()])
     power = SelectField('Power', choices=[("0", "✘"), ("1", "🔌"), ("2", "🔌🔌"), ("3", "🔌🔌🔌"), ("4", "🔌🔌🔌🔌"), ("5", "🔌🔌🔌🔌🔌")],
                         validators=[DataRequired()])
     submit = SubmitField('Submit')

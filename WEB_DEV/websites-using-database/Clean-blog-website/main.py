@@ -23,7 +23,7 @@ my_email = "salmasyed1360@gmail.com"
 password = "evcfuinjcsnojkqr"
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap5(app)
 

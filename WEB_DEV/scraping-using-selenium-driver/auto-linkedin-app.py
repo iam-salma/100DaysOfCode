@@ -1,12 +1,15 @@
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 import time
+from dotenv import load_dotenv
+load_dotenv()
 
-ACCOUNT_EMAIL = "salmajed1360@gmail.com"
-ACCOUNT_PASSWORD = "syedali2000"
-PHONE = "9110563161"
+ACCOUNT_EMAIL = os.getenv('LIN_ACCOUNT_EMAIL')
+ACCOUNT_PASSWORD = os.getenv('LIN_ACCOUNT_PASSWORD')
+PHONE = os.getenv('PHONE')
 
 def abort_application():
     # Click Close Button

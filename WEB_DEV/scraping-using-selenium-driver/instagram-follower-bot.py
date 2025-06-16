@@ -1,8 +1,11 @@
+import os
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import ElementClickInterceptedException
+from dotenv import load_dotenv
+load_dotenv()
 
 SIMILAR_ACCOUNT = "one_message_foundation_"
 
@@ -12,8 +15,8 @@ chrome_options.add_experimental_option("detach", True)
 
 class InstaFollower:
     def __init__(self):
-        self.USERNAME = "curioussoul1360"
-        self.PASSWORD = "Syedali2000!"
+        self.USERNAME = os.getenv("INSTA_USERNAME")
+        self.PASSWORD = os.getenv("LIN_ACCOUNT_PASSWORD")
         self.driver = webdriver.Chrome(options=chrome_options)
 
 

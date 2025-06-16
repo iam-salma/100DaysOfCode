@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 # CREATE DATABASE
 class Base(DeclarativeBase):
-  pass
+    pass
 
 db = SQLAlchemy(model_class=Base)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///new-books-collection.db"

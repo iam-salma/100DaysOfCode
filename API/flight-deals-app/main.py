@@ -35,7 +35,7 @@ one_month_from_today = (datetime.now() + timedelta(days=30)).strftime("%Y-%m-%d"
 for destination in sheet_data:
     print(f"Getting flights for {destination}")
     stopover_flights = flight_search.check_flights(my_city_IATA, destination["iataCode"], from_time=tomorrow,
-                                                   to_time=one_month_from_today, is_direct="false")
+                                                to_time=one_month_from_today, is_direct="false")
     cheapest_flight = find_cheapest_flight(stopover_flights)
     print(f"{destination['city']}: INR {cheapest_flight.price}")
     # Slowing down requests to avoid rate limit
@@ -63,13 +63,13 @@ for destination in sheet_data:
         # Customise the message depending on the number of stops
         if cheapest_flight.stops == 0:
             message = f"Low price alert! Only INR {cheapest_flight.price} to fly direct " \
-                      f"from {cheapest_flight.origin_airport} to {cheapest_flight.destination_airport}, " \
-                      f"on {cheapest_flight.out_date} until {cheapest_flight.return_date}."
+                    f"from {cheapest_flight.origin_airport} to {cheapest_flight.destination_airport}, " \
+                    f"on {cheapest_flight.out_date} until {cheapest_flight.return_date}."
         else:
             message = f"Low price alert! Only INR {cheapest_flight.price} to fly " \
-                      f"from {cheapest_flight.origin_airport} to {cheapest_flight.destination_airport}, " \
-                      f"with {cheapest_flight.stops} stop(s) " \
-                      f"departing on {cheapest_flight.out_date} and returning on {cheapest_flight.return_date}."
+                    f"from {cheapest_flight.origin_airport} to {cheapest_flight.destination_airport}, " \
+                    f"with {cheapest_flight.stops} stop(s) " \
+                    f"departing on {cheapest_flight.out_date} and returning on {cheapest_flight.return_date}."
 
         print(f"Check your email. Lower price flight found to {destination['city']}!")
 

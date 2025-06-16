@@ -6,7 +6,7 @@ from sqlalchemy import Integer, String
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret-key-goes-here'
+app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY")
 
 # Configure Flask-Login's Login Manager
 login_manager = LoginManager()

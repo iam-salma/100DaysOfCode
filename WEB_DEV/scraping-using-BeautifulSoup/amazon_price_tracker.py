@@ -1,9 +1,12 @@
+import os
 import requests
 import smtplib
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+load_dotenv()
 
-email = "salmasyed1360@gmail.com"
-password = "aogwjrpypuekxykk"
+email = os.getenv('SMTP_EMAIL')
+password = os.getenv('SMTP_PASSWORD')
 
 product_url = "https://www.amazon.com/dp/B075CYMYK6?psc=1&ref_=cm_sw_r_cp_ud_ct_FM9M699VKHTT47YD50Q6"
 

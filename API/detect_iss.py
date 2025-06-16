@@ -1,15 +1,19 @@
 # An Application Programming Interface (API) is a set of commands, functions, protocols, and objects that programmers
 # can use to create software or interact with an external system.
 # errors: 1XX : Hold On ; 2XX : Here you Go ; 3XX : Go away ; 4XX : You Screwed Up ; 5XX : I Screwed Up ;
+
+import os
 import requests
 import smtplib
 import time
 from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()
 
 MY_LAT = 17.385044
 MY_LONG = 78.486671
-email = "salmasyed1360@gmail.com"
-password = "Syedali2000!"
+email = os.getenv('SMTP_EMAIL')
+password = os.getenv('SMTP_PASSWORD')
 
 PARAMETERS = {
     "lat": MY_LAT,

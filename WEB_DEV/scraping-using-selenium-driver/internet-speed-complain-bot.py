@@ -5,8 +5,8 @@ from selenium.webdriver.common.keys import Keys
 
 UP = 50
 DOWN = 50
-TWITTER_USERNAME = "salmasyed1360"
-TWITTER_PASSWORD = "Syedali2000!"
+TWITTER_USERNAME = os.getenv("USERNAME")
+TWITTER_PASSWORD = os.getenv("PASSWORD")
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("detach", True)
@@ -37,7 +37,7 @@ class InternetSpeedTwitterBot:
         time.sleep(2)
         tweet_compose = self.driver.find_element(By.XPATH, "//div[contains(@aria-label, 'Tweet text')]")
         tweet = (f"Hey Internet Provider, why is my internet speed {self.down}down/{self.up}up"
-                 f" when I pay for {DOWN}down/{UP}up?")
+                f" when I pay for {DOWN}down/{UP}up?")
         tweet_compose.send_keys(tweet)
         time.sleep(3)
         post = self.driver.find_element(By.XPATH, '//div[@data-testid="tweetButtonInline"]')

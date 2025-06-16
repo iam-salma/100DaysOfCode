@@ -1,17 +1,16 @@
 import os
 import requests
 from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()
 
 GENDER = "female"
 WEIGHT_KG = 62
 HEIGHT_CM = 180
 AGE = 20
 
-# os.environ["APP_ID"] = "1d2f22ba"
-# os.environ["API_KEY"] = "1cca219ba08c70ebb15e408fe80228e9"
-
-APP_ID = os.environ.get("APP_ID", "does not exist")
-API_KEY = os.environ.get("API_KEY", "error")
+APP_ID = os.environ.get("NUTRITIONIX_APP_ID", "does not exist")
+API_KEY = os.environ.get("NUTRITIONIX_API_KEY", "error")
 nutritionix_endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
 sheety_endpoint = os.environ.get("sheety_endpoint")
 
